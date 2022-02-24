@@ -218,6 +218,8 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
         setContentView(binding.root)
         ProfilerMarkers.addListenerForOnGlobalLayout(components.core.engine, this, binding.root)
 
+        methodIntroducingRegression()
+
         // Must be after we set the content view
         if (isVisuallyComplete) {
             components.performance.visualCompletenessQueue
@@ -292,6 +294,16 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
             MarkersActivityLifecycleCallbacks.MARKER_NAME, startTimeProfiler, "HomeActivity.onCreate"
         )
         StartupTimeline.onActivityCreateEndHome(this) // DO NOT MOVE ANYTHING BELOW HERE.
+    }
+
+    private fun methodIntroducingRegression() {
+        repeat(3) {
+            doSomethingSlow()
+        }
+    }
+
+    private fun doSomethingSlow() {
+        Thread.sleep(100)
     }
 
     private fun checkAndExitPiP() {
