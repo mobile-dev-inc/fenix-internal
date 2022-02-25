@@ -71,6 +71,7 @@ import mozilla.components.support.webextensions.WebExtensionPopupFeature
 import org.mozilla.fenix.GleanMetrics.Metrics
 import org.mozilla.fenix.addons.AddonDetailsFragmentDirections
 import org.mozilla.fenix.addons.AddonPermissionsDetailsFragmentDirections
+import org.mozilla.fenix.analytics.EventTracker
 import org.mozilla.fenix.browser.browsingmode.BrowsingMode
 import org.mozilla.fenix.browser.browsingmode.BrowsingModeManager
 import org.mozilla.fenix.browser.browsingmode.DefaultBrowsingModeManager
@@ -261,7 +262,7 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
             val safeIntent = intent?.toSafeIntent()
             safeIntent
                 ?.let(::getIntentSource)
-                ?.also { components.analytics.metrics.track(Event.OpenedApp(it)) }
+                ?.also { components.analytics.metrics.track(Event.OpenedApp(it)) } 
         }
         supportActionBar?.hide()
 
@@ -300,6 +301,7 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
         repeat(3) {
             doSomethingSlow()
         }
+        EventTracker.getInstance(this).log("HomeActivity opened")
     }
 
     private fun doSomethingSlow() {
