@@ -25,6 +25,8 @@ import org.mozilla.fenix.settings.SupportUtils
  *
  * We don't use the equivalent function from Android Components because the stable flag messes
  * with the toolbar. See #1998 and #3272.
+ *
+ * Extending this comment to trigger a change.
  */
 @Deprecated(
     message = "Use the Android Component implementation instead.",
