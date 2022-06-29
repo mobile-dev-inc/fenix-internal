@@ -1,0 +1,20 @@
+name: Build and Upload
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: gradle/gradle-build-action@v2
+    - run: ./gradlew packageDebug
+    - uses: mobile-dev-inc/action-upload@v1.0.0
+      with:
+        api-key: ${{ secrets.MOBILE_DEV_API_KEY }}
+        name: ${{ github.sha }}
+        app-file: app/build/outputs/apk/debug/app-x86-debug.apk
