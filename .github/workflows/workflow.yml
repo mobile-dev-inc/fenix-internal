@@ -17,4 +17,4 @@ jobs:
       with:
         api-key: ${{ secrets.MOBILE_DEV_API_KEY }}
         name: ${{ github.sha }}
-        app-file: app/build/outputs/apk/debug/app-x86-debug.apk
+        app-file: app/build/outputs/apk/nightly/app-x86-nightly.apk
