@@ -17,6 +17,7 @@ import android.os.Build
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.text.style.StyleSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -94,6 +95,7 @@ class SearchDialogFragment : AppCompatDialogFragment(), UserInteractionHandler {
     private var dialogHandledAction = false
 
     override fun onStart() {
+        Log.i("Fenix", "start_searching")
         super.onStart()
 
         if (FeatureFlags.showHomeBehindSearch) {
