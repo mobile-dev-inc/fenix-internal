@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@v3
     - uses: gradle/gradle-build-action@v2
     - run: ./gradlew packageNightly
-    - uses: mobile-dev-inc/action-upload@v1.0.0
+    - uses: mobile-dev-inc/action-upload@vdev-v2
       with:
         api-key: ${{ secrets.MOBILE_DEV_API_KEY }}
         name: ${{ github.sha }}
