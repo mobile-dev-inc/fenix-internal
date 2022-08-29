@@ -304,9 +304,7 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
     }
 
     private fun methodForStartupRegression() {
-        repeat(3) {
-            doSomethingSlow()
-        }
+        doSomethingSlow()
     }
 
     private fun doSomethingSlow() {
