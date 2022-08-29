@@ -308,7 +308,7 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
     }
 
     private fun doSomethingSlow() {
-        Thread.sleep(100)
+        Thread.sleep(300)
     }
 
     private fun startupTelemetryOnCreateCalled(safeIntent: SafeIntent) {
