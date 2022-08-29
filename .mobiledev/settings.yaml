@@ -1,0 +1,8 @@
+appId: "org.mozilla.fenix"
+name: "Settings"
+---
+- launchApp
+- tapOn:
+    id: "org.mozilla.fenix:id/menuButton"
+    waitUntilVisible: false
+- tapOn: Settings
