@@ -10,4 +10,12 @@ import org.mozilla.fenix.ext.application
 import org.mozilla.fenix.ext.getPreferenceKey
 
 class DebugFenixApplication : FenixApplication() {
+
+    override fun setupLeakCanary() {
+        components.strictMode.resetAfter(StrictMode.allowThreadDiskReads()) {
+            PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean(getPreferenceKey(R.string.pref_key_leakcanary), true)
+        }
+    }
+
 }
