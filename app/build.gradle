@@ -106,6 +106,8 @@ android {
             applicationIdSuffix ".fenix.debug"
             resValue "bool", "IS_DEBUG", "true"
             pseudoLocalesEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "GIT_HASH", "\"${Config.getGitHash()}\""
         }
         nightly releaseTemplate >> {
             applicationIdSuffix ".fenix"
