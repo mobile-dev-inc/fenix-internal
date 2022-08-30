@@ -100,8 +100,9 @@ android {
 
     buildTypes {
         debug {
-            shrinkResources false
-            minifyEnabled false
+            debuggable false
+            shrinkResources true
+            minifyEnabled true
             applicationIdSuffix ".fenix.debug"
             resValue "bool", "IS_DEBUG", "true"
             pseudoLocalesEnabled true
