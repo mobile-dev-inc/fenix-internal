@@ -1,4 +1,4 @@
-name: Build and Upload (Debug)
+name: Build and Upload
 
 on:
   workflow_dispatch:
@@ -13,9 +13,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: gradle/gradle-build-action@v2
-    - run: ./gradlew packageDebug
+    - run: ./gradlew packageNightly
     - uses: mobile-dev-inc/action-upload@v2.1.0
       with:
         api-key: ${{ secrets.MOBILE_DEV_API_KEY }}
         name: ${{ github.sha }}
-        app-file: app/build/outputs/apk/debug/app-x86_64-debug.apk
+        app-file: app/build/outputs/apk/nightly/app-x86_64-nightly.apk
